@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "name": "FoxMap",
+  "description": "A simple map basing on OpenStreetMap with localization.",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/img/icons/logo16.png",
+    "48": "/img/icons/logo48.png",
+    "60": "/img/icons/logo60.png",
+    "128": "/img/icons/logo128.png",
+    "512": "/img/icons/logo512.png"
+  },
+  "developer": {
+    "name": "Your name",
+  },
+  "type": "privileged",
+  "permissions": {
+    "geolocation": {
+      "description": "Obtain the current location of the user."
+    }
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "locales": {
+    "de": {
+      "name": "FoxMap",
+      "description": "Eine einfache Karten App mit Lokalisierungsfunktion basierend auf OpenStreetMap",
+      "permissions": {}
+    }
+  },
+  "default_locale": "en"
+}
