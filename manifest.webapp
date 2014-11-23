@@ -11,7 +11,7 @@
     "512": "/img/icons/logo512.png"
   },
   "developer": {
-    "name": "Your name",
+    "name": "Leandra Finger"
   },
   "type": "privileged",
   "permissions": {
@@ -26,7 +26,9 @@
     "de": {
       "name": "FoxMap",
       "description": "Eine einfache Karten App mit Lokalisierungsfunktion basierend auf OpenStreetMap",
-      "permissions": {}
+      "geolocation": {
+        "description": "Obtain the current location of the user."
+      }
     }
   },
   "default_locale": "en"

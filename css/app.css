@@ -1,18 +1,65 @@
 html, body {
-  margin: 0;
-  padding: 0.5rem;
+    padding: 0;
+    margin: 0;
 }
 
-body {
-  font-size: 1rem;
-  background: #fff;
+.leaflet-top{
+    top: -5px;
+}
+
+.leaflet-top .leaflet-control-zoom {
+    margin-top: 60px;
+}
+
+html, body, #map, section {
+    height: 100%;
+}
+
+section {
+    position: relative;
 }
 
 h1 {
-  margin: 0 0 1rem 0;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  width: 100%;
+  margin-top: 0;
+  height: 12%;
+  max-height: 37px;
+  font-weight:bold;
+  line-height: 36px;
+  color:#108304;
+  font-family: Seravek, 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
 }
 
-p {
-  font-size: inherit;
+.error {
+  position: absolute;
+  z-index: 5;
+  top: 30%;
+  width: 80%;
+  left: 10%;
+  padding: 7px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  color:#FAAB00;
+  font-family: Seravek, 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
+  opacity: 0;
+  pointer-events:none;
+  -webkit-transition: all 0.8s ease-in;
+  -moz-transition: all 0.8s ease-in;
+  -ms-transition: all 0.8s ease-in;
+  -o-transition: all 0.8s ease-in;
+  transition: all 0.8s ease-in;
 }
 
+.error.show-error {
+  opacity: 1;
+  -webkit-transition: all 0.4s ease-in;
+  -moz-transition: all 0.4s ease-in;
+  -ms-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
