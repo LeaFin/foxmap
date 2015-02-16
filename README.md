@@ -240,7 +240,7 @@ Danach kommt die eigentliche Interaktion mit dem Geolocation-Modul von Firefox O
 
 **Standort auf Karte anzeigen**  
 In diesem Schritt wird die oben aufgerufene Funktion `locate_success` implementiert. Da zur Anzeige der Position eine Markierung für den Standort benötigt ist, muss diese zuerst erzeugt werden. Dies geschieht mit dem folgenden Code.
-```
+```javascript
 // initialize marker
 marker = L.marker([0,0], {
   icon: L.mapbox.marker.icon({
@@ -249,7 +249,7 @@ marker = L.marker([0,0], {
 }); 
 ```
 Hier wird dem Marker eine Position zugewiesen und zusätzlich eine Farbe gegeben. Die Position ist hier nicht entscheidend, weil der Marker erst sichtbar wird, wenn er der Karte zugeordnet wird.
-```
+```javascript
 var locate_success = function(position) {
   if (first_location) {
     map.setView(
@@ -271,7 +271,7 @@ Und damit der Benutzer weiss, dass die Positionierung weiterläuft wird das Symb
 
 **Lokalisierungsfehler anzeigen**  
 Im Fall dass die Position nicht bestimmt werden kannn, muss dem Benutzer eine Fehlermeldung gezeigt werden. Dazu muss diese zuerst im HTML zugefügt werden.
-```
+```html
 <body>
   <section>
     <h1>FoxMap</h1>
@@ -281,7 +281,7 @@ Im Fall dass die Position nicht bestimmt werden kannn, muss dem Benutzer eine Fe
 </body> 
 ```
 Das Styling der css-Klasse `error` sieht folgendemassen aus:
-```
+```css
 .error {
   position: absolute;
   z-index: 5;
@@ -312,7 +312,7 @@ Das Styling der css-Klasse `error` sieht folgendemassen aus:
 } 
 ```
 Normalerweise ist die Fehleranzeige nicht sichtbar, da `opacity` auf `0` gestellt ist. Aber durch die JavaScript-Funktion `locate_error` wird dem Element die Klasse `show-error` zugefügt, welche das Element sichtbar macht. Die Transitionen sind dazu da, dass die Sichtbarkeit langsam ändert.
-``` 
+```javascript
 var locate_error = function() {
   error.className = error.className + " show-error";
   setTimeout(function(){
@@ -340,7 +340,7 @@ Nun ist es soweit. Die Map hat eine funktionierende Lokalisierung erhalten. Im S
 **Im Marketplace publizieren**  
 In diesem Abschnitt wird beschrieben wie die fertige Applikation in den Marketplace gestellt werden könnte. Die Basis dazu wurde schon durch das Manifest geschaffen. Jetzt muss die Applikation noch gepackt werden. Das lässt sich durch die folgende Zeile in der Konsole machen.
 
-```bash
+```bas
 zip -r meine_applikation.zip pfad_zu/meiner_applikation 
 ```
 Auf https://marketplace.firefox.com/developers/ kann ein Account für den Marketplace erstellt werden, falls dieser noch nicht vorhanden ist. Nach dem Einloggen kann auf  https://marketplace.firefox.com/developers/submit/ Schritt für Schritt eine App eingereicht werden. Im Beispiel von FoxMap wurde eine gepackte App erstellt. Diese kann einfach als .zip-Datei hochgeladen werden. Danach wird die Applikation von Mozilla geprüft und wenn alles gut läuft, ist sie schon bald für jeden Firefox-Benutzer verfügbar.
