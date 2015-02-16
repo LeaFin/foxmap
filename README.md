@@ -1,12 +1,8 @@
-Tutorial Foxmap
+Tutorial FoxMap
 ===================
 
 
 Dieses Tutorial ist als Seminararbeit an der ZHAW entstanden. Es gliedert sich in eine Einleitung, in welcher das Ziel des Tutorials erläutert wird, eine kurze Übersicht der verwendeten Tools und den praktischen Teil, in welchem das Vorgehen Schritt für Schritt erklärt ist. Und zum Schluss gibt es noch einige weiterführende Informationen.
-
-
-----------
-
 
 Einleitung
 -------------
