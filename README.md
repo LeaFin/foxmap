@@ -25,11 +25,11 @@ In älteren Firefox Versionen gibt es die WebIDE nicht, dafür ist der Firefox A
 
 Vorgehen
 ------------
-**Neues Projekt erstellen**
+**Neues Projekt erstellen**  
 Als erstes muss in der WebIDE von Firefox ein neues Projekt erstellt werden. Das wird über das Menu „Project > New Project“ gemacht. Nun gibt es verschiedene Projekttypen zur Auswahl. Für eine Kartenapp mit Lokalisierung muss die Option „Privileged Empty App“ gewählt werden.
 Das Gerüst für die App wird dadurch automatisch erstellt. Alle Dateien können direkt in der WebIDE oder in einem bevorzugten Editor bearbeitet werden.
 ![Projektübersicht in der WebIDE](https://lh3.googleusercontent.com/-f4ZtBq-mUbQ/VOGzQirbKEI/AAAAAAAAAF8/vMWClaE78W0/s0/Overview.png "Overview.png")
-**Das Manifest**
+**Das Manifest**  
 Um einige Informationen über die App zu erfassen wird zuerst das Manifest angepasst. Das File enthält ein JSON mit Eigenschaften, welche gesetzt sein müssen damit die App später in den Marketplace gestellt werden kann und solchen die optional sind. Obligatorisch sind folgende Attribute:
 >- `name`: Name der App
 >- `description`: Kurze Beschreibung der App, welche auch im Marketplace angezeigt wird
@@ -75,16 +75,16 @@ Das  Manifest von FoxMap sieht folgendermassen aus:
 ```
 Zusätzlich zu den vorgegebenen Eigenschaften sind hier noch `locales` für die deutsche Übersetzung und `permissions` gesetzt. Diese Berechtigung braucht Foxmap, da die App auf die Geolocation-Schnittstelle von Firefox OS zugreift. Ausserdem wird in diesem Manifest `type` definiert. Dieses Attribut gibt den Level an Berechtigungen an, welche eine Applikation hat. Weitere Attribute, welche im Manifest gebraucht werden können, sind unter der URL https://developer.mozilla.org/en-US/Apps/Build/Manifest zu finden.
 
-**Die Lizenz**
+**Die Lizenz**  
 Ins Dokument `LICENSE` muss die gewünschte Softwarelizenz eingefügt und angepasst werden. Die Apache Lizenz welche in der generierten App enthalten ist, kann auch weiterverwendet werden.
 
-**Readme**
+**Readme**  
 Das generierte `README.md` File beinhaltet einige Informationen zu Firefox OS Applikationen. Hier kann zum Beispiel der Umfang der App beschrieben werden oder eine Benutzeranleitung stehen. 
 
-**Firefox OS Simulator**
+**Firefox OS Simulator**  
 In der WebIDE von Firefox können ganz einfach Simulatoren verschiedener OS-Versionen aufgesetzt werden, auf welchen sich die Applikation während der Entwicklung testen lässt. Dazu wir in der WebIDE „Select Runtime“ angewählt und dann „Install Simulator“. Nun stehen verschiedene Versionen zur Auswahl, welche auch parallel installiert werden können.
 
-**Platzhalter für Karte**
+**Platzhalter für Karte**  
 Jetzt endlich kann die Karte platziert werden. Dazu muss das File `index.html` angepasst werden. Es wird ein `div` - Element mit der ID `map` gesetzt, in welchem später mit JavaScript die Karte eingefügt wird. Gleichzeitig wird ein Titel für die Applikation gesetzt. Somit sieht das HTML-Dokument folgendermassen aus:
 ```HTML
 <!DOCTYPE html>
@@ -109,12 +109,12 @@ Jetzt endlich kann die Karte platziert werden. Dazu muss das File `index.html` a
 ```
 Im selben Schritt kann auch im Head des Files das Title-Tag und die Meta-description angepasst werden.
 
-**Mapbox**
+**Mapbox**  
 Für das Anzeigen der Karte wird Mapbox verwendet. Mapbox ist sowohl eine JavaScript-Library, als auch eine Plattform um eigene Kartenstile für OpenStreetMap zu speichern, welche über eine API in Applikationen verwendet werden können.
 Dafür muss zunächst ein Konto bei Mapbox eingerichtet werden. Das kann unter  https://www.mapbox.com/ gemacht werden. Dann muss ein Projekt angelegt werden, in welchem der Stil für die Karte nach belieben angepasst werden kann.
 Für das Einbinden der Karte wird das `API access token` und die `Map ID` gebraucht. Beide sind auf der Projektübersichtsseite zu finden.
 
-**Mapbox einbinden**
+**Mapbox einbinden**  
 Wie schon erwähnt, wird die Karte via JavaScript eingebunden. Dazu wird das File  `app.js` folgendermassen geändert.
 ```javascript
 window.addEventListener('DOMContentLoaded', function() {
@@ -140,7 +140,7 @@ Ausserdem muss für das richtige Styling noch die css-Datei von Mapbox eingebund
 <link rel="stylesheet" href="css/app.css">
 ```
 
-**Styling**
+**Styling**  
 Nun muss noch das css-File etwas angepasst werden, damit alles richtig erscheint. Hier hat der Entwickler natürlich auch die Freiheit alles so zu gestalten wie es ihm gefällt. Als Beispiel hier das Styling von FoxMap:
 ```css
 html, body {
@@ -182,11 +182,11 @@ h1 {
 ```
 Die überschriebenen Styles `.leaflet-top` und `.leaflet-top .leaflet-control-zoom` werden zur Positionierung des Zoomwerkzeugs verwendet.
 
-**Karte in Sicht!**
-Endlich ist es soweit. Jetzt sollte die Karte mit dem Titel angezeigt werden. Dazu muss rechts oben in der  WebIDE ein Simulator ausgewählt werden und schon kann der Play-Button gedrückt werden, um die App im Simulator zu starten. Das sollte zu diesem Bild führen.
+**Karte in Sicht!**  
+Endlich ist es soweit. Jetzt sollte die Karte mit dem Titel angezeigt werden. Dazu muss rechts oben in der  WebIDE ein Simulator ausgewählt werden und schon kann der Play-Button gedrückt werden, um die App im Simulator zu starten. Das sollte zu diesem Bild führen.  
 ![App im Simulator](https://lh5.googleusercontent.com/WzqqFVhgY8KmHD-BdCK8zh9Maydgc1-uJfu8dkKD3Q=s400 "Map.png")
 
-**Standort bestimmen**
+**Standort bestimmen**  
 Jetzt fehlt nur noch die Funktionalität um den eigenen Standort zu bestimmen. Dazu muss das Javascript noch etwas erweitert werden.
 ```javascript
 var container, link, marker, map, first_location;
@@ -238,7 +238,7 @@ Als erstes wird festgelegt, dass die Lokalisierung zum ersten Mal durchgeführt 
 Durch das Zufügen der Klasse `requesting` zum Container-Element wird dem Benutzer gezeigt, dass die Suche läuft. Diese Klasse ist von Mapbox schon definiert.
 Danach kommt die eigentliche Interaktion mit dem Geolocation-Modul von Firefox OS. Mit der Funktion `watchPosition` von `navigator.geolocation` kann die aktuelle Position vom Betriebsystem erfragt werden und zusätzlich wird die Position nach Ablaufen einer bestimmten Zeit, dem `maximumAge`, automatisch neu bestimmt. Falls die Position in der durch die Option timeout gegebenen Zeit, bestimmt werden kann, wird sie an die Funktion `locate_success` weitergegeben. Falls das nicht möglich ist wird `locate_error` ausgeführt. Beim Wiederholen der Standortbestimmung nach der gesetzten Zeit wird wieder entweder `locate_success` oder `locate_error` ausgeführt.
 
-**Standort auf Karte anzeigen**
+**Standort auf Karte anzeigen**  
 In diesem Schritt wird die oben aufgerufene Funktion `locate_success` implementiert. Da zur Anzeige der Position eine Markierung für den Standort benötigt ist, muss diese zuerst erzeugt werden. Dies geschieht mit dem folgenden Code.
 ```
 // initialize marker
@@ -269,7 +269,7 @@ Das ist nun die Funktion welche ausgeführt wird, sobald die Position gefunden w
 Die nachfolgenden Schritte hingegen sollen bei jeder Positionsaktualisierung durchgeführt werden. Dabei wird die Position des Markers auf den aktuellen Standort gesetzt und sichergestellt dass er auf der Karte angezeigt wird.
 Und damit der Benutzer weiss, dass die Positionierung weiterläuft wird das Symbol auf dem Lokalisierungs-Button, durch die Klasse `active` angepasst.
 
-**Lokalisierungsfehler anzeigen**
+**Lokalisierungsfehler anzeigen**  
 Im Fall dass die Position nicht bestimmt werden kannn, muss dem Benutzer eine Fehlermeldung gezeigt werden. Dazu muss diese zuerst im HTML zugefügt werden.
 ```
 <body>
@@ -328,18 +328,16 @@ var locate_error = function() {
 
 Durch diese Funktion werden lediglich Klassen gesetzt, damit dem Benutzer der Fehler angezeigt wird. Alle Klassen welche auf den Container angewendet werden sind in der Library von Mapbox definiert.
 
-**Steuerung anzeigen**
+**Steuerung anzeigen**  
 Durch die folgende Zeile kann die nun implementierte Steuerung der Karte zugefügt werden. Diese Zeile muss nach dem Initialisieren der Map eingefügt werden.
 ```javascript
 map.addControl(new LocateControl()); 
 ```
 
-Nun ist es soweit. Die Map hat eine funktionierende Lokalisierung erhalten. Im Simulator erschient die App jetzt wie links zu sehen. Falls die Position nicht bestimmt werden konnte wird die Fehlermeldung gezeigt.
-![App mit Lokalisierung](https://lh5.googleusercontent.com/-ddKrBjiHmus/VOG96wlUVLI/AAAAAAAAAGg/-cW5hvwcWOs/s400/with_loc.png "with_loc.png")
+Nun ist es soweit. Die Map hat eine funktionierende Lokalisierung erhalten. Im Simulator erschient die App jetzt wie links zu sehen. Falls die Position nicht bestimmt werden konnte wird die Fehlermeldung (rechts) gezeigt.  
+![App mit Lokalisierung](https://lh5.googleusercontent.com/-ddKrBjiHmus/VOG96wlUVLI/AAAAAAAAAGg/-cW5hvwcWOs/s400/with_loc.png "with_loc.png") ![Fehlermeldung](https://lh3.googleusercontent.com/-SDdjsjOQ3Bs/VOG-j1CCARI/AAAAAAAAAG4/YCycAmIiYYo/s400/map_error.png "map_error.png")
 
-![Fehlermeldung](https://lh3.googleusercontent.com/-SDdjsjOQ3Bs/VOG-j1CCARI/AAAAAAAAAG4/YCycAmIiYYo/s400/map_error.png "map_error.png")
-
-**Im Marketplace publizieren**
+**Im Marketplace publizieren**  
 In diesem Abschnitt wird beschrieben wie die fertige Applikation in den Marketplace gestellt werden könnte. Die Basis dazu wurde schon durch das Manifest geschaffen. Jetzt muss die Applikation noch gepackt werden. Das lässt sich durch die folgende Zeile in der Konsole machen.
 
 ```bash
